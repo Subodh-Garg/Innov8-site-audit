@@ -28,5 +28,7 @@ new Vue({
     })
     // Initialize Cloud Firestore through Firebase
     this.$store.commit('setFirebasedb', firebase.firestore())
+    // Set If Desktop or Mobile
+    this.$store.commit('setIsDesktop')
   }
 })

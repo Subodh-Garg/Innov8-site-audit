@@ -1,5 +1,7 @@
 export default {
   user: null,
   isAuthenticated: false,
-  firebasedb: null
+  firebasedb: null,
+  isDesktop: false,
+  error: null
 }
