@@ -1,11 +1,22 @@
 <template>
-  <h1>Project Page</h1>
+  <h2>Project</h2>
 </template>
 
 <script>
 export default {
+  computed: {
+
+  },
+  data () {
+    return {
+
+    }
+  },
+  methods: {
+
+  }
 }
 </script>
 
-<style lang="css">
+<style>
 </style>

@@ -5,9 +5,12 @@ import Vuetify from 'vuetify'
 import * as firebase from 'firebase'
 import 'firebase/firestore'
 import 'vuetify/dist/vuetify.min.css'
+import DateFilter from './filters/date'
 import {store} from './store'
 
 Vue.use(Vuetify)
+
+Vue.filter('date', DateFilter)
 
 Vue.config.productionTip = false
 
@@ -30,5 +33,11 @@ new Vue({
     this.$store.commit('setFirebasedb', firebase.firestore())
     // Set If Desktop or Mobile
     this.$store.commit('setIsDesktop')
+    // Auto login
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.$store.dispatch('autoSignIn', user)
+      }
+    })
   }
 })

@@ -1,20 +1,17 @@
 <template>
-  <!-- <v-container>
-  <v-layout row wrap justify-center>
-  <v-flex xs12>
-  <img src="https://innov8.work/static/images/INNOV8_LOGO.png" alt="innov8" class="logo-title">
-</v-flex>
-<h1>Login Page {{isDesktop}}</h1>
-</v-layout>
-</v-container> -->
+
+<!-- Full window height screen -->
 <div class="full-screen">
   <div class="items-container">
+
     <div class="logo-container">
       <img src="https://innov8.work/static/images/INNOV8_LOGO.png" alt="innov8" class="logo-title">
     </div>
+
     <div class="login-text">
       <h2>Login</h2>
     </div>
+
     <div class="login-form">
       <form @submit.prevent="signIn()">
         <v-text-field
@@ -38,6 +35,7 @@
         </v-btn>
       </form>
     </div>
+
   </div>
 </div>
 </template>
