@@ -5,6 +5,7 @@ import ProjectsList from '@/components/Pages/ProjectsList'
 import Project from '@/components/Pages/Project'
 import Floor from '@/components/Pages/Floor'
 import Questions from '@/components/Pages/Questions'
+import AuthGuard from './auth-guard'
 
 Vue.use(Router)
 
@@ -18,22 +19,29 @@ export default new Router({
     {
       path: '/projects',
       name: 'ProjectsList',
-      component: ProjectsList
+      component: ProjectsList,
+      beforeEnter: AuthGuard
     },
     {
       path: '/projects/:project',
       name: 'Project',
-      component: Project
+      component: Project,
+      beforeEnter: AuthGuard,
+      props: true
     },
     {
       path: '/projects/:project/:floor',
       name: 'Floor',
-      component: Floor
+      component: Floor,
+      beforeEnter: AuthGuard,
+      props: true
     },
     {
       path: '/projects/:project/:floor/questions',
       name: 'Questions',
-      component: Questions
+      component: Questions,
+      beforeEnter: AuthGuard,
+      props: true
     }
   ],
   mode: 'history'

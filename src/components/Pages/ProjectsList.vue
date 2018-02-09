@@ -1,7 +1,7 @@
 <template>
 
   <v-container class="main-container">
-    <!-- Create Project heading -->
+    <!-- Project List Heading -->
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
         <h1 class="grey--text">Projects List</h1>
@@ -76,7 +76,6 @@
             <v-btn dark flat @click.native="toggleProjectDialog">Save</v-btn>
           </v-toolbar-items> -->
         </v-toolbar>
-
         <!-- Dialog Form -->
         <div class="project-form-container mt-5">
           <div class="project-form">
@@ -114,7 +113,6 @@
             </form>
           </div>
         </div>
-
       </v-card>
     </v-dialog>
 
@@ -127,7 +125,6 @@
 export default {
   computed: {
     projects () {
-      console.log('get Projects called')
       if (this.$store.getters.projects.length > 0) {
         this.isFirstProject = false
       } else {
@@ -138,7 +135,7 @@ export default {
   },
   data () {
     return {
-      isFirstProject: true,
+      isFirstProject: false,
       isShowDialog: false,
 
       name: '',
@@ -186,6 +183,7 @@ export default {
 <style lang="css">
   .main-container {
     margin: 0;
+    padding: 16px;
   }
   .float-btn {
     top: 88vh;

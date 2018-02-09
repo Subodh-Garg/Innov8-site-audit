@@ -20,6 +20,31 @@ export default {
     console.log('projectsItems: ' + JSON.stringify(projectsItems))
     return projectsItems
   },
+  projectFloors (state) {
+    return (projectName) => {
+      const projectFloorsItem = []
+      console.log('state.projects: ' + JSON.stringify(state.projects))
+      // TODO: change all JSON.parse(JSON.stringify) -> lodash.deepClone
+      if (state.projects[projectName] !== undefined) {
+        console.log('if')
+        const projectFloors = JSON.parse(JSON.stringify(state.projects[projectName].floors))
+        // loop through all projects and get project detials
+        Object.keys(projectFloors).forEach(key => {
+          projectFloorsItem.push({
+            floor_no: projectFloors[key].floor_no,
+            completed: projectFloors[key].completed,
+            in_progress: projectFloors[key].in_progress,
+            not_initiated: projectFloors[key].not_initiated,
+            total_questions: projectFloors[key].total_questions
+          })
+        })
+      } else {
+        console.log('else')
+      }
+      console.log('projectFloorsItem: ' + JSON.stringify(projectFloorsItem))
+      return projectFloorsItem
+    }
+  },
   isDesktop (state) {
     return state.isDesktop
   },
@@ -39,6 +64,11 @@ export default {
   ajaxProject (state) {
     return (projectName) => {
       return state.firebasedb.collection('projects').doc(projectName)
+    }
+  },
+  ajaxFloors (state) {
+    return (projectName) => {
+      return state.firebasedb.collection('projects').doc(projectName).collection('floors')
     }
   },
   ajaxFloor (state) {
