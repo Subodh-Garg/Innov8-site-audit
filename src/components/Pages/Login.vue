@@ -77,7 +77,7 @@ export default {
 
 <style scoped>
 .full-screen {
-  height: 100vh;
+  height: 90vh;
   background-color: white;
   display: flex;
   flex-wrap: wrap;

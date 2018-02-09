@@ -1,6 +1,6 @@
 <template>
 
-  <v-container class="main-container">
+  <v-container style="margin: 0; padding: 16px;">
     <!-- Project List Heading -->
     <v-layout row>
       <v-flex xs12 sm6 offset-sm3>
@@ -181,12 +181,8 @@ export default {
 </script>
 
 <style lang="css">
-  .main-container {
-    margin: 0;
-    padding: 16px;
-  }
   .float-btn {
-    top: 88vh;
+    top: 80vh;
     right: 5vw;
   }
   .project-form-container {
